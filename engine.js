@@ -1,6 +1,8 @@
 
 define( [ 'scullge/actor', 'scullge/utils/animations' ], function( BaseActor, AnimationsUtils )
 	{
+		'use strict';
+
 		function BaseEngine()
 		{
 			this.intervalId = null;

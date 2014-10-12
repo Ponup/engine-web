@@ -1,6 +1,8 @@
 
 define( function()
 {
+	'use strict';
+
 	function AudioLoader()
 	{
 		this.audios = {};

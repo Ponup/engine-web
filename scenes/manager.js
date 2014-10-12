@@ -1,6 +1,8 @@
 
 define( [ 'scullge/scenes/base' ], function( BaseScene )
 {
+	'use strict';
+
 	function SceneManager()
 	{
 		this.currentScene = null;
