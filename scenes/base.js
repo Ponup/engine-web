@@ -6,6 +6,7 @@ define( function()
 	function BaseScene( id )
 	{
 		this.id = id || null;
+		this.virtual = false;
 	}
 
 	BaseScene.prototype.getId = function()
@@ -16,6 +17,16 @@ define( function()
 	BaseScene.prototype.setId = function( id )
 	{
 		this.id = id;
+	};
+
+	BaseScene.prototype.setVirtual = function( virtual )
+	{
+		this.virtual = virtual;
+	};
+
+	BaseScene.prototype.isVirtual = function()
+	{
+		return this.virtual;
 	};
 
 	BaseScene.prototype.switchFrom = function( scene )

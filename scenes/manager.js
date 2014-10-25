@@ -32,15 +32,20 @@ define( [ 'scullge/scenes/base' ], function( BaseScene )
 			throw 'The scene was not added to this manager: ' + sceneId;
 		}
 
-		var previousScene = this.currentScene;
-		this.currentScene = this.scenes[ sceneId ];
-		
-		if( null !== previousScene )
+		var futureScene = this.scenes[ sceneId ],
+		    futureIsVirtual = futureScene.isVirtual();
+
+		if( null !== this.currentScene && false === futureIsVirtual )
 		{
-			previousScene.cleanup();
+			this.currentScene.cleanup();
 		}
 
-		this.currentScene.switchFrom( previousScene );
+		futureScene.switchFrom( this.currentScene );
+
+		if( false === futureIsVirtual )
+		{
+			this.currentScene = futureScene;
+		}
 	};
 
 	return SceneManager;
