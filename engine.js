@@ -31,7 +31,9 @@ define( [ 'scullge/actor', 'scullge/utils/animations' ], function( BaseActor, An
 
 		BaseEngine.prototype.findActorById = function( id )
 		{
-			for( var i = 0; i < this.actors.length; i++ )
+			var numberOfActors = this.actors.length,
+			    i = 0;
+			for( ; i < numberOfActors; i++ )
 			{
 				if( this.actors[i].id == id ) return this.actors[i];
 			}
@@ -41,8 +43,11 @@ define( [ 'scullge/actor', 'scullge/utils/animations' ], function( BaseActor, An
 
 		BaseEngine.prototype.findActorsByType = function( type )
 		{
-			var actors = [];
-			for( var i = 0; i < this.actors.length; i++ )
+			var numberOfActors = this.actors.length,
+				actors = [],
+				i = 0;
+
+			for( ; i < numberOfActors; i++ )
 			{
 				if( this.actors[i].getType() == type )
 				{
@@ -59,7 +64,10 @@ define( [ 'scullge/actor', 'scullge/utils/animations' ], function( BaseActor, An
 
 		BaseEngine.prototype.initActors = function()
 		{
-			for( var i = 0; i < this.actors.length; i++ )
+			var numberOfActors = this.actors.length,
+				i = 0;
+
+			for( ; i < numberOfActors; i++ )
 			{
 				var actor = this.actors[ i ];
 				if( !actor.isInitiated() )
@@ -112,12 +120,16 @@ define( [ 'scullge/actor', 'scullge/utils/animations' ], function( BaseActor, An
 		{
 			this.runAnimations();
 
-			for( var i = 0; i < this.updateListeners.length; i++ )
+			var i = null,
+			    numberOfListeners = this.updateListeners.length,
+			    numberOfActors = this.actors.length;
+
+			for( i = 0; i < numberOfListeners; i++ )
 			{
 				this.updateListeners[i]();
 			}
 
-			for( var i = 0; i < this.actors.length; i++ )
+			for( i = 0; i < numberOfActors; i++ )
 			{
 				var actor = this.actors[i];
 				actor.update();

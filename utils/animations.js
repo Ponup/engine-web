@@ -9,9 +9,11 @@ define( function()
 
 		AnimationsUtils.installAnimationFrames = function()
 		{
-			var lastTime = 0;
-			var vendors = [ 'ms', 'moz', 'webkit', 'o' ];
-			for( var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x )
+			var lastTime = 0,
+				vendors = [ 'ms', 'moz', 'webkit', 'o' ],
+				vendorsLen = vendors.length,
+				x = 0;
+			for( ; x < vendorsLen && !window.requestAnimationFrame; ++x )
 			{
 				window.requestAnimationFrame = window[ vendors[ x ] + 'RequestAnimationFrame' ];
 				window.cancelAnimationFrame = window[ vendors[ x ] + 'CancelAnimationFrame'] || window[ vendors[ x ] + 'CancelRequestAnimationFrame' ];

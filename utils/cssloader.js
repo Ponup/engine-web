@@ -10,7 +10,9 @@ define( function()
 		
 		CssLoader.prototype.loadCsss = function( cssFiles )
 		{
-			for( var i = 0; i < cssFiles.length; i++ )
+			var i = 0,
+				cssFilesLen = cssFiles.length;
+			for( ; i < cssFilesLen; i++ )
 			{
 				this.loadCss( cssFiles[i] );
 			}
