@@ -18,16 +18,22 @@ define( function()
 
 	AudioLoader.prototype.stopAll = function()
 	{
-		for( var i in this.audios )
+		for( var name in this.audios )
 		{
-			if( this.audios.hasOwnProperty( i ) )
+			if( this.audios.hasOwnProperty( name ) )
 			{
-				if( !this.audios[ i ].paused )
-				{
-					this.audios[ i ].pause();
-					this.audios[ i ].currentTime = 0;
-				}
+				this.pauseAudio( name );
 			}
+		}
+	};
+
+	AudioLoader.prototype.stop = function( name )
+	{
+		var audio = this.audios[ name ];
+		if( !audio.paused )
+		{
+			audio.pause();
+			audio.currentTime = 0;
 		}
 	};
 
