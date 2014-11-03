@@ -48,6 +48,11 @@ define( [ 'scullge/scenes/base' ], function( BaseScene )
 		}
 	};
 
+	SceneManager.prototype.getCurrentScene = function()
+	{
+		return this.currentScene;
+	};
+
 	return SceneManager;
 });
 
