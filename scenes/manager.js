@@ -1,5 +1,5 @@
 
-define( [ 'scullge/scenes/base' ], function( BaseScene )
+define( [ 'pew/scenes/base' ], function( BaseScene )
 {
 	'use strict';
 

@@ -1,5 +1,5 @@
 
-define( [ 'scullge/actor', 'scullge/utils/animations' ], function( BaseActor, AnimationsUtils )
+define( [ 'pew/actor', 'pew/utils/animations' ], function( BaseActor, AnimationsUtils )
 	{
 		'use strict';
 
